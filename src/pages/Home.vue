@@ -47,11 +47,20 @@
       <flexbox-item><div class="left">宠萌明星</div></flexbox-item>
     </flexbox>
     <div class="cmmx-box">
-      <flexbox justify="space-between" class="part" :gutter="10">
-        <flexbox-item>
-          <div></div>
+      <flexbox justify="space-between" align="flex-start" class="part" :gutter="10" v-for="item in cmmx_list" :key="item.id">
+        <flexbox-item :span="2">
+          <div class="img-box">
+            <img :src="item.img"  alt="">
+          </div>
         </flexbox-item>
-        <flexbox-item><div class="right">共20家</div></flexbox-item>
+        <flexbox-item :span="9">
+          <div class="msg-box">
+            <div class="name">{{item.name}}</div>
+            <div class="age">{{item.age}}</div>
+            <div class="intr">{{item.intr}}</div>
+            <div class="tag" :class="item.star_type=='1'?'c1':(item.star_type=='2'?'c2':'c3')">人气之星</div>
+          </div>
+        </flexbox-item>
       </flexbox>
     </div>
   </div>
@@ -115,7 +124,40 @@ export default {
           score: 3
         }
       ],
-      aa: 'dwdwdd'
+      cmmx_list: [
+        {
+          id: 1,
+          img: 'http://img1.imgtn.bdimg.com/it/u=163711717,1335413376&fm=200&gp=0.jpg',
+          name: '布拉吉',
+          intr: '我从来不认为自己是一直猫，因为我有着比猫过人的本领。',
+          age: '3岁零8个月',
+          star_type: 1
+        },
+        {
+          id: 2,
+          img: 'http://img1.imgtn.bdimg.com/it/u=3074798371,2768818906&fm=200&gp=0.jpg',
+          name: '布拉吉',
+          intr: '我从来不认为自己是一直猫，因为我有着比猫过人的本领。',
+          age: '3岁零8个月',
+          star_type: 2
+        },
+        {
+          id: 3,
+          img: 'http://img0.imgtn.bdimg.com/it/u=257643722,3894171946&fm=200&gp=0.jpg',
+          name: '布拉吉',
+          intr: '我从来不认为自己是一直猫，因为我有着比猫过人的本领。',
+          age: '3岁零8个月',
+          star_type: 3
+        },
+        {
+          id: 4,
+          img: 'http://img2.imgtn.bdimg.com/it/u=3964575684,7654796&fm=200&gp=0.jpg',
+          name: '布拉吉',
+          intr: '我从来不认为自己是一直猫，因为我有着比猫过人的本领。',
+          age: '3岁零8个月',
+          star_type: 2
+        }
+      ]
     }
   },
   methods: {
